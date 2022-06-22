@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employees</title>
+</head>
+<body>
+ <h1 align="center">My Countries List</h1>
+    <br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+            	<th>Country Name</th>
+                <th>Actions</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        	<tr th:each="country:${countries}">
+        	<!--	<td th:text="${country.countryID}"> Country ID</td>
+        	 -->
+        	 <!--<td th:text="${country.countryName}"> Country Name</td>  -->
+        		<!--<td th:text="${country.capitalName}"> Capital Name</td>
+        	<td th:text="${country.population}"> population</td>-->	
+        	
+        	
+			<td><a th:href="@{/edit/{id}(id=${country.countryID})}" th:text="${country.countryName}">countryname</a></td>
+        	<td><a th:href="@{/edit/{id}(id=${country.countryID})}">Edit</a></td>
+        	
+        	<td><a th:href="@{/delete/{id}(id=${country.countryID})}">Delete</a></td>
+        
+        	
+        </tr>
+        </tbody>
+        </table>
+<br>
+<a href="/new"> click here to add data to list</a> <br>
+<a href="/"> click here to go back to home page</a>
+
+</body>
+</html>
